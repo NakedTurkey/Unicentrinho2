@@ -1,1 +1,37 @@
-\
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int soma(int num);
+    void bissexto(int ano);
+    
+    int ano;
+    cin >> ano;
+    bissexto(ano);
+    
+    return 0;
+}
+
+int soma(int num)
+{
+    int soma = 0;
+    int i;
+        for(i = 1; i <= num; i++)
+        {
+            soma += i;
+        }
+        return soma;
+}
+
+void bissexto(int ano)
+{
+    if(ano % 4 == 0)
+    {
+       cout << "True" << endl;
+    }
+    else
+    {
+        cout << "False" << endl;
+    }
+}
