@@ -1,4 +1,6 @@
 #include <iostream>
+
+#define TAM 8
 using namespace std;
 
 int main()
@@ -6,11 +8,9 @@ int main()
     int soma(int num);
     void bissexto(int ano);
     void formaBinaria(int num);
+    void senha(char senha[]);
     
     
-    int num;
-    cin >> num;
-    formaBinaria(num);
     
     
     
@@ -99,3 +99,27 @@ void formaBinaria(int num)
         }
         cout << endl;
 }
+
+void senha(char senha[])
+{
+    char senha2[TAM];
+    int i = 0;
+    cout << "Digite a seha novamente: ";
+    cin >> senha2;
+        while(i < TAM)
+        {
+            if(senha[i] != senha2[i])
+            {
+                cout << "Senha incorreta!" << endl;
+                break;
+            }
+            i++;
+            if(i == TAM)
+            {
+                cout << "Senha correta!" << endl;
+            }
+        }
+            
+        }
+    
+
