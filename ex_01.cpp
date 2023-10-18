@@ -1,200 +1,203 @@
 #include <iostream>
-
-#define pi 3.1415
-
+#include <math.h>
+#define TAM 8
 using namespace std;
+
+    
+
 
 int main()
 {
-    void mul4(); // A 1
-    void imparPar(); // A 2
-    void somaIntervalo(); // A 3 
-    void raio(); // A 4
-    void fatorial();  // A 5
-    void pot(); // A 6
+    int soma(int num);
+    void bissexto(int ano);
+    void formaBinaria(int num);
+    void senha(char senha[]);
+    void juros();
+    void ordenar(int vetorzinho[]);
     
-    int mul42(int num); //B
-    int imparPar2(int num); //B
-    int somaIntervalo2(int num1, int num2); //B
-    int raio2(int num); //B
-    int fatorial2(int num); //B
-    int pot2(int base, int expo); //B
+    int vetor[TAM];
+    char vetorSenha[TAM];
+    int i;
+    int num, somaAntes;
     
-    
-    mul4();
-    imparPar();
-    somaIntervalo();
-    raio();
-    fatorial();
-    pot();
-    
-    int num1, num2, multi4, intervalo, expResul;
-    cout << endl << "Escreva um numero ";
-    cin >> num1;
-    multi4 = mul42(num1);
-    
-    if(multi4 % 4 == 0) //B
-    {
-        cout << "Multiplo de 4" << endl;
-    }
-    else
-    {
-        cout << "Nao e multiplo de 4" << endl;
-    }
-    cout << "Bote um numero: ";
-    cin >> num1;
-    num1 = imparPar2(num1);
-    
-    if(num1 % 2 == 0)
-    {
-        cout << "Eh par" << endl;
-    }
-    else
-    {
-        cout << "Nao eh par" << endl;
-    }
-    cout << "Digite dois numeros ";
-    cin >> num1 >> num2;
-    intervalo = somaIntervalo2(num1, num2);
-    cout << "Intervalo: " << intervalo << endl;
-    cout <<"Ponha um raio ";
-    cin >> num1;
-    num1 = raio2(num1);
-    cout <<"Raio " << num1 << endl;
-    cout << "Digite um fatorial ";
-    cin >> num1;
-    num1 = fatorial2(num1);
-    cout << "Fatorial " << num1 << endl;
-    cout << "Digite base e expoente ";
-    cin >> num1 >> num2;
-    expResul = pot2(num1, num2);
-    cout << "Exponenciacao " << expResul;
-}
-
-void mul4() // A 1
-{
-    int num;
     cout << "Digite um numero: ";
     cin >> num;
-    if(num % 4 == 0)
-    {
-        cout << "Multiplo de 4" << endl;
-    }
-    else
-    {
-        cout << "Nao e multiplo de 4" << endl;
-    }
-}
-
-void imparPar() // A 2
-{
-    int num;
-    cout << "Digite outro numero: ";
+    somaAntes = soma(num);
+    cout << "Soma dos antecessores " << somaAntes << endl;
+    cout << "Escreva um ano: ";
     cin >> num;
-    if(num % 2 == 0)
+    bissexto(num);
+    cout << "Ponha um numero para converter em binaris: ";
+    cin >> num;
+    formaBinaria(num);
+    cout << "Escreva uma senha: ";
+    cin >> vetorSenha;
+    senha(vetorSenha);
+    juros();
+    cout << "Encha o vetor" << endl;
+    for(i = 0; i< TAM; i++)  //vetorzinho
     {
-        cout << "Eh par" << endl;
+        cin >> vetor[i];
     }
-    else
-    {
-        cout << "Nao eh par" << endl;
-    }
+    ordenar(vetor);
+    
+    
+    
+    return 0;
 }
 
-void somaIntervalo() // A 3
+int soma(int num)
 {
-    int num1, num2;
-    cout << "Escreva dois numeros: ";
-    cin >> num1 >> num2;
-    
-    int i, soma = 0;
-        for(i = num1; i <= num2; i++)
+    int soma = 0;
+    int i;
+        for(i = 1; i <= num; i++)
         {
             soma += i;
         }
-    cout << "Intervalo " << soma << endl;
+        return soma;
 }
 
-void raio() // A 4
+void bissexto(int ano)
 {
-    int raio;
-    cout << "Ponha um raio: ";
-    cin >> raio;
-    cout << "Raio " <<(4*pi*(raio*raio*raio))/3 << endl;
-}
-
-void fatorial() // A 5
-{
-    int num;
-    cout << "Bote um numero fatorial: ";
-    cin >> num;
-    int i, fatorial = 1;
-    for(i = num; i > 0; i--)
+    if(ano % 4 == 0)
     {
-        fatorial *= num;
-        num--;
+       cout << "True" << endl;
     }
-    cout << "Fatorial " << fatorial << endl;
+    else if(ano % 100 == 0)
+    {
+       cout << "True" << endl;
+    }
+    else if(ano % 400 == 0)
+    {
+        cout << "True" << endl;
+    }
+    else
+    {
+         cout << "False" << endl;
+    }
 }
 
-void pot()  // A 6
+void formaBinaria(int num)
 {
-    int base, expo;
-    cout << "Digite base e expoente: ";
-    cin >> base >> expo;
-    int i, resul = 1;
-        for(i = 0; i < expo; i++)
+    char binario[30], binario2[30];
+    int i = 0, j, aux;
+    while(num > 0)
+    {
+        
+        if(num == 2)
+            {
+                binario[i] = '0';
+                binario[i+1] = '1';
+                i++;
+                break;
+            }
+            else if(num == 1)
+            {
+                binario[i] = '1';
+                binario[i+1] = '0';
+                i++;
+                break;
+            }
+            
+        if(num % 2 == 0)
         {
-            resul *= base;
+            binario[i] = '0';
+            num /= 2;
+            i++;
+            
         }
-    cout << "Potenciacao " <<resul << endl;
-}
-
-int mul42(int num) // B
-{
-    return num % 4;
-}
-
-int imparPar2(int num) // B
-{
-    return num % 2;
-}
-
-int somaIntervalo2(int num1, int num2) //B
-{
-    int intervalo2 = 0;
+        else if(num % 2 == 1)
+        {
+            binario[i] = '1';
+            num /= 2;
+            i++;
+        }
+    }
+    j = aux = i;
     
-    int i, soma = 0;
-        for(i = num1; i <= num2; i++)
+        for(i = 0; i <= aux; i++)
         {
-            soma += i;
+            binario2[i] = binario[j];
+            j--;
         }
-    return soma;
+        for(i = 0; i <= aux; i++)
+        {
+            cout << binario2[i];
+        }
+        cout << endl;
 }
 
-int raio2(int num)
+void senha(char senha[])
 {
-    int raio = (4*pi*(num*num*num))/3;
-    return raio;
+    char senha2[TAM];
+    int i = 0;
+    cout << "Digite a seha novamente: ";
+    cin >> senha2;
+        while(i < TAM)
+        {
+            if(senha[i] != senha2[i])
+            {
+                cout << "Senha incorreta!" << endl;
+                break;
+            }
+            i++;
+            if(i == TAM)
+            {
+                cout << "Senha correta!" << endl;
+            }
+        }
+            
 }
 
-int fatorial2(int num)
+void juros()
 {
-    int i, fatorial = 1;
-    for(i = num; i > 0; i--)
+    
+    float pot(float base, int expo);
+    
+    float capital, juros, final, taxaExp;
+    int anos;
+    cout << "Capital: ";
+    cin >> capital;
+    cout << "Juros: ";
+    cin >> juros;
+    cout << "Anos: ";
+    cin >> anos;
+    juros /= 100;
+    juros += 1;
+    taxaExp = pow(juros, anos);
+    final = capital * taxaExp;
+   cout << "Seu montante eh " << final << endl;
+}
+
+float pot(float base, int expo)
+{
+    int i;
+    float resul;
+    for(i = 0; i < expo - 1; i++)
     {
-        fatorial *= num;
-        num--;
+        resul *= base;
     }
-    return fatorial;
-}
-
-int pot2(int base, int expo)
-{
-    int i, resul = 1;
-        for(i = 0; i < expo; i++)
-        {
-            resul *= base;
-        }
     return resul;
+}
+
+void ordenar(int vetorzinho[])
+{
+    int i, j, aux;
+for(i = 0; i < TAM; i++)
+{
+    for(j = 0; j < TAM; j++)
+    {
+        if(vetorzinho[j+1] < vetorzinho[j])
+        {
+            aux = vetorzinho[j+1];
+            vetorzinho[j+1] = vetorzinho[j];
+            vetorzinho[j] = aux;
+        }
+    }
+}
+    cout << "Ordenada: ";
+    for(i = 0; i< TAM; i++)
+    {
+        cout << vetorzinho[i] << " ";
+    }
 }
