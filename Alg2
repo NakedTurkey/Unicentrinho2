@@ -1,7 +1,10 @@
 #include <iostream>
-
+#include <math.h>
 #define TAM 8
 using namespace std;
+
+    
+
 
 int main()
 {
@@ -9,9 +12,34 @@ int main()
     void bissexto(int ano);
     void formaBinaria(int num);
     void senha(char senha[]);
+    void juros();
+    void ordenar(int vetorzinho[]);
     
+    int vetor[TAM];
+    char vetorSenha[TAM];
+    int i;
+    int num, somaAntes;
     
-    
+    cout << "Digite um numero: ";
+    cin >> num;
+    somaAntes = soma(num);
+    cout << "Soma dos antecessores " << somaAntes << endl;
+    cout << "Escreva um ano: ";
+    cin >> num;
+    bissexto(num);
+    cout << "Ponha um numero para converter em binaris: ";
+    cin >> num;
+    formaBinaria(num);
+    cout << "Escreva uma senha: ";
+    cin >> vetorSenha;
+    senha(vetorSenha);
+    juros();
+    cout << "Encha o vetor" << endl;
+    for(i = 0; i< TAM; i++)  //vetorzinho
+    {
+        cin >> vetor[i];
+    }
+    ordenar(vetor);
     
     
     
@@ -76,14 +104,13 @@ void formaBinaria(int num)
             binario[i] = '0';
             num /= 2;
             i++;
-            cout << num << endl;
+            
         }
         else if(num % 2 == 1)
         {
             binario[i] = '1';
             num /= 2;
             i++;
-            cout << num << endl;
         }
     }
     j = aux = i;
@@ -120,6 +147,57 @@ void senha(char senha[])
             }
         }
             
-        }
-    
+}
 
+void juros()
+{
+    
+    float pot(float base, int expo);
+    
+    float capital, juros, final, taxaExp;
+    int anos;
+    cout << "Capital: ";
+    cin >> capital;
+    cout << "Juros: ";
+    cin >> juros;
+    cout << "Anos: ";
+    cin >> anos;
+    juros /= 100;
+    juros += 1;
+    taxaExp = pow(juros, anos);
+    final = capital * taxaExp;
+   cout << "Seu montante eh " << final << endl;
+}
+
+float pot(float base, int expo)
+{
+    int i;
+    float resul;
+    for(i = 0; i < expo - 1; i++)
+    {
+        resul *= base;
+    }
+    return resul;
+}
+
+void ordenar(int vetorzinho[])
+{
+    int i, j, aux;
+for(i = 0; i < TAM; i++)
+{
+    for(j = 0; j < TAM; j++)
+    {
+        if(vetorzinho[j+1] < vetorzinho[j])
+        {
+            aux = vetorzinho[j+1];
+            vetorzinho[j+1] = vetorzinho[j];
+            vetorzinho[j] = aux;
+        }
+    }
+}
+    cout << "Ordenada: ";
+    for(i = 0; i< TAM; i++)
+    {
+        cout << vetorzinho[i] << " ";
+    }
+}
