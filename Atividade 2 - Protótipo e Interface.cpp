@@ -15,9 +15,9 @@ int main()
     void juros();
     void ordenar(int vetorzinho[]);
     
-    int vetor[TAM];
+    int vetor[TAM], vetor2[9];
     char vetorSenha[TAM];
-    int i;
+    int i, j = 0, k, l = 0;
     int num, somaAntes;
     
     cout << "Digite um numero: ";
@@ -30,8 +30,70 @@ int main()
     cout << "Ponha um numero para converter em binaris: ";
     cin >> num;
     formaBinaria(num);
-    cout << "Escreva uma senha: ";
-    cin >> vetorSenha;
+        while(j != 3)
+        {
+            cout << "Escreva uma senha com exatos 8 chars, pelo menos uma maiuscula e numero: ";
+            cin >> vetorSenha;
+               for(i = 0; i <= TAM; i++)
+               {
+                   if(vetorSenha[i] == 0)
+                   {
+                       break;
+                   }
+               }
+              if(i != 8)
+              {
+                  cout << endl << "A senha eh com exatos 8 chars!" << endl << endl;
+                  j = 0;
+                  continue;
+              }
+              j++;
+                for(i = 0; i < TAM; i++)
+                {
+                    for(k = 65; k <= 90; k++)
+                    {
+                        if(vetorSenha[i] == k)
+                        {
+                            l++;
+                            break;
+                        }
+                    }
+                    if(l > 0)
+                    {
+                      break;  
+                    }
+                }
+                if(l == 0)
+                    {
+                        cout << endl << "A senha deve conter maiusculas!" << endl << endl;
+                        j = l = 0;
+                      continue;  
+                    }
+                j++;
+                l = 0;
+                for(i = 0; i < TAM; i++)
+                {
+                    for(k = 48; k <= 57; k++)
+                    {
+                        if(vetorSenha[i] == k)
+                        {
+                            l++;
+                            break;
+                        }
+                    }
+                    if(l > 0)
+                    {
+                      break;  
+                    }
+                }
+                if(l == 0)
+                {
+                    cout << endl << "A senha deve conter numeros!" << endl << endl;
+                    j = l = 0;
+                    continue;
+                }
+                j++;
+        }
     senha(vetorSenha);
     juros();
     cout << "Encha o vetor" << endl;
