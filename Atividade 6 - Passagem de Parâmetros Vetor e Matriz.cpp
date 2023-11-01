@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 
 #define TAM 8
 using namespace std;
@@ -7,22 +6,55 @@ using namespace std;
 int main()
 {
     void ordenar(int *a, int *b); //A, 1
-    void separar(double *num); //A, 2
-    bool has_zero(int v[], int n); //B
+    void has_zero(int v[], int n); //B
     int maiorValor(int *v); //C, 1
     float media(int v[TAM]); //C, 2
     int numInteiros(int v[]); //C, 3
-    int encher(int n, int v[]); //C, 4
-    int maiorMenor(int *v); //C, 5
+    void encher(int n, int v[]); //C, 4
+    void maiorMenor(int *v, int *maiore, int *menore); //C, 5
     
-    int n = TAM;
+    int n = TAM, i;
     int num1, num2;
+    int v[TAM];
+    float media1;
     cout << "Numero 1: ";
     cin >> num1;
     cout << endl << "Numero 2: ";
     cin >> num2;
     ordenar(&num1, &num2); //A, 1
-        
+    
+    cout << "Encha o vetor: "; //B
+        for(i = 0; i < TAM; i++)
+        {
+            cin >> v[i];
+        }
+    cout << endl;
+    has_zero(v, n);
+    
+    cout << endl << "Preencha o vetor novamente: "; //C, 1
+        for(i = 0; i < TAM; i++)
+        {
+            cin >> v[i];
+        }
+    num1 = maiorValor(v);
+    cout << endl << "Maior valor: " << num1 << endl;
+    
+    media1 = media(v); //C, 2 
+    cout << "Media os valores: " << media1 << endl;
+    
+    num1 = numInteiros(v); //C, 3
+    cout << num1 << " valores positivos." << endl;
+    
+    cout << "Insira valores no vetorzinho novamente: " << endl; //C, 4
+    encher(n, v);
+    cout << "Valores: ";
+        for(i = 0; i < TAM; i++)
+        {
+            cout << v[i] << ' ';
+        }
+    
+    maiorMenor(v, &num1, &num2); //C, 5
+    cout << endl << "Maior valor: " << num1 << " Menor valor: " << num2 << endl;
     
     
     
@@ -40,25 +72,26 @@ void ordenar(int *a, int *b) //A, 1
         *a = *b;
         *b = aux;
     }
-    cout << "A: " << *a << "B: " << *b << endl;
+    cout << "A: " << *a << " B: " << *b << endl;
 }
 
-void separar(double *num) //A, 2
-{
-cout << setpresicion(1) << "Inteira: " << *num << "Decimais: " << *num << endl;
-}
-
-bool has_zero(v[], int n) //B
+void has_zero(int v[], int n) //B
 {
     int i;
         for(i = 0; i < n; i++)
         {
             if(v[i] == 0)
             {
-                return true;
+            cout << "True" << endl;
+            break;
             }
-            return false;
         }
+        if(i >= 6)
+        {
+            cout << "False" << endl;
+        }
+        
+        
 }
 
 int maiorValor(int *v) //C, 1
@@ -89,7 +122,7 @@ int numInteiros(int v[]) //C, 3
     int i, soma = 0;
         for(i = 0; i < TAM; i++)
         {
-            if(v[i] < 0)
+            if(v[i] >= 0)
             {
                 soma++;
             }
@@ -97,7 +130,7 @@ int numInteiros(int v[]) //C, 3
     return soma;
 }
 
-int encher(int n, int v[]) //C, 4
+void encher(int n, int v[]) //C, 4
 {
     for(int i = 0; i < n; i++)
     {
@@ -105,18 +138,19 @@ int encher(int n, int v[]) //C, 4
     }
 }
 
-int maiorMenor(int *v) //C, 5
+void maiorMenor(int *v, int *maiore, int *menore) //C, 5
 {
-    int maior = menor = v[0];
+    *maiore = v[0];
+    *menore = v[0];
         for(int i = 0; i < TAM-1; i++)
         {
-            if(v[i+1] > maior)
+            if(v[i+1] > (*maiore))
             {
-                maior = v[i+1];
+                *maiore = v[i+1];
             }
-            if(v[i+1] < menor)
+            if(v[i+1] < (*menore))
             {
-                menor = v[i+1];
+                *menore = v[i+1];
             }
         }
 }
