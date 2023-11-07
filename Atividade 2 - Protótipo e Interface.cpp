@@ -3,18 +3,14 @@
 #define TAM 8
 using namespace std;
 
-    
-
-
-int main()
-{
-    int soma(int num);
+int soma(int num);
     void bissexto(int ano);
     void formaBinaria(int num);
     void senha(char senha[]);
     void juros();
     void ordenar(int vetorzinho[]);
-    
+int main()
+{
     int vetor[TAM], vetor2[9];
     char vetorSenha[TAM];
     int i, j = 0, k, l = 0;
