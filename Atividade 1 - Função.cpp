@@ -4,9 +4,7 @@
 
 using namespace std;
 
-int main()
-{
-    void mul4(); // A 1
+void mul4(); // A 1
     void imparPar(); // A 2
     void somaIntervalo(); // A 3 
     void raio(); // A 4
@@ -20,7 +18,8 @@ int main()
     int fatorial2(int num); //B
     int pot2(int base, int expo); //B
 
-
+int main()
+{
     mul4();
     imparPar();
     somaIntervalo();
