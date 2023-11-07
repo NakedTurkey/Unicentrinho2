@@ -3,16 +3,16 @@
 #define TAM 8
 using namespace std;
 
-int main()
-{
-    void ordenar(int *a, int *b); //A, 1
+void ordenar(int *a, int *b); //A, 1
     void has_zero(int v[], int n); //B
     int maiorValor(int *v); //C, 1
     float media(int v[TAM]); //C, 2
     int numInteiros(int v[]); //C, 3
     void encher(int n, int v[]); //C, 4
     void maiorMenor(int *v, int *maiore, int *menore); //C, 5
-    
+
+int main()
+{
     int n = TAM, i;
     int num1, num2;
     int v[TAM];
