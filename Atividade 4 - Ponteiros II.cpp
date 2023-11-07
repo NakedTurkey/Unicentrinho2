@@ -3,12 +3,12 @@
 #define TAM 30
 using namespace std;
 
-int main()
-{
-    int dobro(int *p);
+int dobro(int *p);
     void vogais(char pal[], int *p);
     void invertStr(char pal[]);
-    
+
+int main()
+{   
         int a = 2, b = 4;//ex1
         int i;
         char pal[TAM];
