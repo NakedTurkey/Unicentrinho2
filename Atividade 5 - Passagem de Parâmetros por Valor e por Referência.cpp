@@ -3,9 +3,7 @@
 #define TAM 5
 using namespace std;
 
-int main()
-{
-    int multi1(int num1, int num2);
+int multi1(int num1, int num2);
     int multi2(int *num1, int *num2);
     int soma1(int num);
     int soma2(int *num);
@@ -13,9 +11,9 @@ int main()
     int sub2(int *num);
     void inverte(int *vet);
     void maiusculo(char *pal);
-    
-    
-    
+
+int main()
+{
     int num1, num2, i, vet[TAM] = {1, 2, 3, 4, 5};
     char pal[TAM];
     int *p1, *p2;
