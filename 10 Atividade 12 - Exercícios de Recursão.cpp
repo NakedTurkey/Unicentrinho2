@@ -20,14 +20,30 @@ II. Qual o valor de X(4)? (Feofiloff 2009)
 14, 9}   
 
 
+
+
 */
 #include <iostream>
 
 using namespace std;
 
+int soma(int *v, int n); //2 - II
+
 int main()
 {
-    
+    int v[5] = {1, 3, 5, 7, 567}; //2 - II
+    int soms = soma(v, 5); //2 - II
+    cout << "SOMA: " << soms; 
     return 0;
+}
+
+int soma(int *v, int n) //2 - II
+{
+    if(n == 1)
+    {
+        return v[n-1];
+    }else{
+        return v[n-1] + soma(v, n-1);
+    }
 }
 
