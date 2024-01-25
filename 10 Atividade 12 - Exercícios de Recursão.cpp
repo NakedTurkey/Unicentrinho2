@@ -43,23 +43,40 @@ tipo?
 
 using namespace std;
 
-int soma(int *v, int n); //2 - II
+int somaVetor(int *v, int n); //2 - II
+int somaCadeia(int n); //4 - A
 
 int main()
 {
     int v[5] = {1, 3, 5, 7, 567}; //2 - II
-    int soms = soma(v, 5); //2 - II
-    cout << "SOMA: " << soms; 
+    int soma; 
+    soma = somaVetor(v, 5); //2 - II
+    cout << "SOMA: " << soma << endl;
+    
+    soma = somaCadeia(6);//4 - A
+    cout << "Soma consecutiva: " << soma << endl;
+    
+    
+    
     return 0;
 }
 
-int soma(int *v, int n) //2 - II
+int somaVetor(int *v, int n) //2 - II
 {
     if(n == 1)
     {
         return v[n-1];
     }else{
-        return v[n-1] + soma(v, n-1);
+        return v[n-1] + somaVetor(v, n-1);
     }
+}
+
+int somaCadeia(int n) //4 - A
+{
+    if(n == 1)
+    {
+        return n;
+    }
+        return n + somaCadeia(n-1);
 }
 
