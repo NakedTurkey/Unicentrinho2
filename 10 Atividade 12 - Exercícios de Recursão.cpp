@@ -38,6 +38,18 @@ tipo?
 4. À medida que o tamanho do problema diminui, é possível alcançar o caso-base?
     Sim.
     
+C. O que a função abaixo faz? Trata-se de uma função recursiva linear ou em árvore?
+Explique.
+    Trata-se de uma função linear, pois contém apenas uma chamada de função por retorno.
+    
+D. O que a função teste2() faz? Qual o retorno para teste2(4532)?
+    Retorna o mesmo numero que o usuario entrou, voltará o numero 4532.
+    
+E. Considerando que há dois valores iguais no vetor v, qual deles será retornado pela
+função max()? Faça o teste de mesa para o vetor {2, 7, 4, 7, 3} e indique a resposta pelo
+índice do elemento no vetor.
+
+    Será feita normalmente.
 */
 #include <iostream>
 
@@ -45,6 +57,7 @@ using namespace std;
 
 int somaVetor(int *v, int n); //2 - II
 int somaCadeia(int n); //4 - A
+int pot(int base, int expo); //4 - B
 
 int main()
 {
@@ -56,8 +69,8 @@ int main()
     soma = somaCadeia(6);//4 - A
     cout << "Soma consecutiva: " << soma << endl;
     
-    
-    
+    soma = pot(3, 5); //4 - B
+    cout << "Potencia : " << soma << endl;
     return 0;
 }
 
@@ -79,4 +92,17 @@ int somaCadeia(int n) //4 - A
     }
         return n + somaCadeia(n-1);
 }
-
+int pot(int base, int expo) //4 - B
+{
+    if(expo == 2)
+    {
+        return base * base;
+    }else if(expo == 1)
+    {
+        return base;
+    }else if(expo == 0)
+    {
+        return 1;
+    }
+    return base * pot(base, expo-1);
+}
