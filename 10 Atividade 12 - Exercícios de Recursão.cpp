@@ -19,9 +19,25 @@ II. Qual o valor de X(4)? (Feofiloff 2009)
 {7, 12, 5,      5       F           V       F       V
 14, 9}   
 
+3 - 
+Quantas vezes a função fib() será chamada para resolver fib(8)?
+    82 
 
+4 - 
 
+1. Como pode ser definido o problema em termos de um problema menor do mesmo
+tipo?
+    pilha
 
+2. Como cada chamada recursiva diminui o tamanho do problema?
+    Diminui o valor
+    
+3. Qual instância do problema serve como caso-base?
+    quqando chega no final
+
+4. À medida que o tamanho do problema diminui, é possível alcançar o caso-base?
+    Sim.
+    
 */
 #include <iostream>
 
