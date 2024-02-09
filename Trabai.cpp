@@ -12,6 +12,9 @@ void navegaCompras(char *picone, char direcao);
 void imprimeCompras(char icon);
 void imprimeArtes(int tipo);
 void imprimeNome();
+void imprimeEuro();
+void imprimeMuie();
+void imprimeEuroMuie();
 void navega(int direcao);
 void setFontSize(int a, int b);
 
@@ -126,9 +129,14 @@ void navegaCompras(char *picone, char direcao){
 	}
 }
 
+
 void imprimeArtes(int tipo){
 	if(tipo == 0){
 		imprimeNome();
+	}else if(tipo == 1){
+		imprimeEuro();
+	}else if(tipo == 2){
+		imprimeEuroMuie();
 	}
 		
 }
@@ -139,7 +147,7 @@ void imprimeNome(){
 	espaco(22);
 	printf("_____ ___   _____ ___   ___   _ ___        _____ ___   ___\n");
 	espaco(21);
-	printf("(_   _)  _ \\(  _  )  _ \\(  _ \\(_)  _ \\     (  _  )  _ \\(  _ \\ \n");
+	printf("(_   _)  _ \\(  _  )  _ \\(  _ \\(_)  _ \\     (  _  )  _ \\(  _ \\\n");
 	espaco(23);
 	printf("| | | (_) ) (_) | (_(_) (_(_) | ( (_)    | (_) | |_) ) |_) )\n");
 	espaco(23);
@@ -147,10 +155,147 @@ void imprimeNome(){
 	espaco(23);
 	printf("| | | |\\ \\| | | | |   | |   | | (_( )    | | | | |   | |\n");
 	espaco(23);
-	printf("(_) (_) (_)_) (_)_)   (_)   (_)____/     (_) (_)_)   (_)\n\n\n");
+	printf("(_) (_) (_)_) (_)_)   (_)   (_)____/     (_) (_)_)   (_)\n\n");
+	espaco(20);
+	SetConsoleTextAttribute(cor, 0x02);
+	printf("'--------------------------------------------------------------'\n");
 	SetConsoleTextAttribute(cor, 0x07);
 }
 
+void imprimeEuro(){
+	HANDLE cor = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(cor, 0x06);
+	espaco(16);
+		printf("_.-------._\n");
+		espaco(13);
+		printf("_-'_.------._ `-_\n");
+		espaco(11);
+		printf("_- _-          `-_/\n");
+		espaco(10);
+		printf("-  -\n");
+		espaco(6);
+		printf("___/  /______________\n");
+		espaco(5);
+		printf("/___  .______________/\n");
+		espaco(6);
+		printf("___| |_____________\n");
+		espaco(5);
+		printf("/___  .____________/\n");
+		espaco(9);
+		printf("\\  \\\n");
+		espaco(10);
+		printf("-_ -_             /|\n");
+		espaco(12);
+		printf("-_ -._        _- |\n");
+		espaco(14);
+		printf("-._ `------'_./\n");
+		espaco(17);
+		printf("`-------'\n");
+	SetConsoleTextAttribute(cor, 0x07);
+}
+
+void imprimeEuroMuie(){
+	int x = 12;
+	HANDLE cor = GetStdHandle(STD_OUTPUT_HANDLE);
+	
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(37);
+		printf(".-\"\"-.");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(15);
+		espaco(x);
+		printf("_.-------._\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(36);
+		printf("(___/\\ \\");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(11);
+		espaco(x);
+		printf("_-'_.------._ `-_\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(18);
+		printf(",                 (|^ ^ ) )");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(8);
+		espaco(x);
+		printf("_- _-          `-_/\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(16);
+		printf("//(                _)_\\=_// (");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(7);
+		espaco(x);
+		printf("-  -\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(10);
+		printf(",..__/ `\\           ____(_/_ ` \\   )");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(2);
+		espaco(x);
+		printf("___/  /______________\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(12);
+		printf("`\\    _/        _/---._/(_)_  `\\ (");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(1);
+		espaco(x);
+		printf("/___  .______________/\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(14);
+		printf("'--\\ `-.__..-'    /.    (_), |  )");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(1);
+		espaco(x);
+		printf("___| |_____________\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(18);
+		printf("`._        ___\\_____.'_| |__/");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(0);
+		espaco(x);
+		printf("/___  .____________/\n");
+		SetConsoleTextAttribute(cor, 0x05); //muie
+		espaco(21);
+		printf("`~----\"`   `-.........'");
+		SetConsoleTextAttribute(cor, 0x06);	//euro
+		espaco(7);
+		espaco(x);
+		printf("\\  \\\n");
+		espaco(52);
+		espaco(x);
+		printf("-_ -_             /|\n");
+		espaco(54);
+		espaco(x);
+		printf("-_ -._        _- |\n");
+		espaco(56);
+		espaco(x);
+		printf("-._ `------'_./\n");
+		espaco(59);
+		espaco(x);
+		printf("`-------'\n");
+	SetConsoleTextAttribute(cor, 0x07);
+}
+
+void imprimeMuie(){
+		espaco(27);
+		printf(".-\"\"-.\n");
+		espaco(26);
+		printf("(___/\\ \\\n");
+		espaco(8);
+		printf(",                 (|^ ^ ) )\n");
+		espaco(7);
+		printf("//(               _)_\\=_// (\n");
+		espaco(1);
+		printf(",..__/ `\\          ____(_/_ ` \\   )\n");
+		espaco(2);
+		printf("`\\    _/        _/---._/(_)_  `\\ (\n");
+		espaco(4);
+		printf("'--\\ `-.__..-'    /.    (_), |  )\n");
+		espaco(8);
+		printf("`._        ___\\_____.'_| |__/\n");
+		espaco(11);
+		printf("`~----\"`   `-.........'\n");
+}
 
 void imprimeTitulo(char icon){
 	Titulo titulo = {{{"Comprar"},{"* Comprar"},
@@ -161,47 +306,51 @@ void imprimeTitulo(char icon){
 	if(icon == 0){
 		system("cls");
 		imprimeArtes(0);
-		espaco(35);
+		espaco(30);
 		printf("%s", titulo.elementos[1]);
 		espaco(29);
 		printf("%s\n\n", titulo.elementos[2]);
-		espaco(35);
+		espaco(30);
 		printf("%s", titulo.elementos[4]);
 		espaco(31);
 		printf("%s\n", titulo.elementos[6]);
+		imprimeArtes(2);
 	}else if(icon == 1){
 		system("cls");
 		imprimeArtes(0);
-		espaco(5);
+		espaco(30);
 		printf("%s", titulo.elementos[0]);
 		espaco(31);
-		printf("%s\n", titulo.elementos[3]);
-		espaco(5);
+		printf("%s\n\n", titulo.elementos[3]);
+		espaco(30);
 		printf("%s", titulo.elementos[4]);
 		espaco(31);
 		printf("%s\n", titulo.elementos[6]);
+		imprimeArtes(2);
 	}else if(icon == 2){
 		system("cls");
 		imprimeArtes(0);
-		espaco(5);
+		espaco(30);
 		printf("%s", titulo.elementos[0]);
 		espaco(31);
-		printf("%s\n", titulo.elementos[2]);
-		espaco(5);
+		printf("%s\n\n", titulo.elementos[2]);
+		espaco(30);
 		printf("%s", titulo.elementos[4]);
 		espaco(31);
 		printf("%s\n", titulo.elementos[7]);
+		imprimeArtes(2);
 	}else if(icon == 3){
 		system("cls");
 		imprimeArtes(0);
-		espaco(5);
+		espaco(30);
 		printf("%s", titulo.elementos[0]);
 		espaco(31);
-		printf("%s\n", titulo.elementos[2]);
-		espaco(5);
+		printf("%s\n\n", titulo.elementos[2]);
+		espaco(30);
 		printf("%s", titulo.elementos[5]);
 		espaco(29);
 		printf("%s\n", titulo.elementos[6]);
+		imprimeArtes(2);
 	}
 }
 
